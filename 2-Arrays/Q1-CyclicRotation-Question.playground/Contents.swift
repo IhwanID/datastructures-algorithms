@@ -17,8 +17,23 @@ import UIKit
  */
 
 func solution(A: [Int], K: Int) -> [Int] {
-    // do your work here...
-    return [Int]()
+   var newArray = A
+   
+    
+    for (i, e) in A.enumerated() {
+        var value = A[i]
+    
+        if (i + K <= A.count - 1) {
+            newArray[i+K] = value
+        } else {
+            var index = ((i + K) - (A.count ) )
+            print(index)
+            newArray[index] = value
+        }
+        
+    }
+    
+    return newArray
 }
 
 solution(A: [1, 2, 3, 4, 5], K: 1) // 5 1 2 3 4
