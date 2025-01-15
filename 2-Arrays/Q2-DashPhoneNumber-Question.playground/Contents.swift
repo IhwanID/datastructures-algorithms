@@ -23,8 +23,37 @@ import UIKit
  
  */
 func solution(_ S : String) -> String {
-    // do your work here
-    return ""
+    var  array: [String] = []
+    
+    for s in S {
+        if (s != " " && s != "-"){
+            array.append(String(s))
+        }
+    }
+    
+    
+    var result: String = ""
+    var count: Int = -2
+    for i in array {
+        result.append(i)
+        
+        if(count % 3 == 0){
+            result.append("-")
+            
+        }
+        count += 1
+    }
+    
+    if (result.last == "-") {
+        result = String(result.dropLast())
+    }
+    var index = result.count - 2
+    var chars = Array(result)
+    if (chars[index] == "-") {
+        chars[index] = chars[index - 1]
+        chars[index - 1] = "-"
+    }
+    return String(chars)
 }
 
 solution("123456789")           // 123-456-789
