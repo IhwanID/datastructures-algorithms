@@ -17,8 +17,20 @@ import Foundation
  */
 
 public func solution(_ A : [String], _ B : [String], _ P : String) -> String {
-    // do your work here
-    return ""
+    var contacts: [String] = []
+    for (index, contact) in B.enumerated() {
+        if (contact.contains(P)){
+            contacts.append(A[index])
+        }
+    }
+    
+    if (contacts.isEmpty) {
+        return "NO CONTACT"
+    } else {
+        contacts = contacts.sorted()
+        return contacts[0]
+    }
+    
 }
 
 let A = ["pim", "pom"]
